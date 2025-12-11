@@ -19,7 +19,7 @@ const Login = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await axios.post("3.108.63.91:3000/login", {
+      const res = await axios.post("http://3.108.63.91:3000/user/login", {
         email: email,
         password: password,
       });

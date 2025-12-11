@@ -22,7 +22,7 @@ export default function Signup() {
     try {
       setLoading(true);
 
-      const res = await axios.post("3.108.63.91:3000/signup", {
+      const res = await axios.post("http://3.108.63.91:3000/user/signup", {
         email,
         password,
         username,

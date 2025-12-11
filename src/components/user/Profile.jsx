@@ -32,14 +32,14 @@ const Profile = () => {
       if (userId) {
         try {
           const response = await axios.get(
-            `3.108.63.91:3000/userProfile/${userId}`
+            `http://3.108.63.91:3000/user/userProfile/${userId}`
           );
           setUserDetails(response.data);
 
           // Fetch repository count
           try {
             const repoResponse = await axios.get(
-              `3.108.63.91:3000/repo/user/${userId}`
+              `http://3.108.63.91:3000/repo/user/${userId}`
             );
             setRepoCount(
               Array.isArray(repoResponse.data) ? repoResponse.data.length : 0
