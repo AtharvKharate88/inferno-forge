@@ -93,7 +93,7 @@ const Dashboard = () => {
     const userId = localStorage.getItem("userId");
     const fetchRepos = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/repo/user/${userId}`);
+        const res = await fetch(`3.108.63.91:3000/repo/user/${userId}`);
         if (!res.ok) throw new Error(`fetch repos failed: ${res.status}`);
         const data = await res.json();
         const list = data.repositories || data || [];
@@ -121,7 +121,7 @@ const Dashboard = () => {
               toFetch.map(async (r) => {
                 try {
                   const resp = await fetch(
-                    `http://localhost:3000/repo/${r.id}/languages`
+                    `3.108.63.91:3000/repo/${r.id}/languages`
                   );
                   if (!resp.ok) return { id: r.id, languages: [] };
                   const j = await resp.json();

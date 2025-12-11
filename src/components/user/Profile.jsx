@@ -12,7 +12,10 @@ import { useAuth } from "../../authContext";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const [userDetails, setUserDetails] = useState({ username: "username", email: "" });
+  const [userDetails, setUserDetails] = useState({
+    username: "username",
+    email: "",
+  });
   const [repoCount, setRepoCount] = useState(0);
   const { setCurrentUser } = useAuth();
 
@@ -29,16 +32,18 @@ const Profile = () => {
       if (userId) {
         try {
           const response = await axios.get(
-            `http://localhost:3000/userProfile/${userId}`
+            `3.108.63.91:3000/userProfile/${userId}`
           );
           setUserDetails(response.data);
-          
+
           // Fetch repository count
           try {
             const repoResponse = await axios.get(
-              `http://localhost:3000/repo/user/${userId}`
+              `3.108.63.91:3000/repo/user/${userId}`
             );
-            setRepoCount(Array.isArray(repoResponse.data) ? repoResponse.data.length : 0);
+            setRepoCount(
+              Array.isArray(repoResponse.data) ? repoResponse.data.length : 0
+            );
           } catch (err) {
             console.error("Cannot fetch repositories: ", err);
           }
@@ -127,7 +132,9 @@ const Profile = () => {
             <h3>{userDetails.username}</h3>
             {userDetails.email && (
               <p className="user-email">
-                <FiMail style={{ marginRight: "6px", verticalAlign: "middle" }} />
+                <FiMail
+                  style={{ marginRight: "6px", verticalAlign: "middle" }}
+                />
                 {userDetails.email}
               </p>
             )}
