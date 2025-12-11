@@ -22,7 +22,7 @@ export default function Signup() {
     try {
       setLoading(true);
 
-      const res = await axios.post("http://localhost:3000/signup", {
+      const res = await axios.post("3.108.63.91:3000/signup", {
         email,
         password,
         username,
