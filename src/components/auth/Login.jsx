@@ -19,10 +19,13 @@ const Login = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await axios.post("http://3.108.63.91:3000/user/login", {
-        email: email,
-        password: password,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/user/login`,
+        {
+          email: email,
+          password: password,
+        }
+      );
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userId", res.data.userId);

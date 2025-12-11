@@ -22,11 +22,14 @@ export default function Signup() {
     try {
       setLoading(true);
 
-      const res = await axios.post("http://3.108.63.91:3000/user/signup", {
-        email,
-        password,
-        username,
-      });
+      const res = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/user/signup`,
+        {
+          email,
+          password,
+          username,
+        }
+      );
 
       const token = res.data.token;
       const userId = res.data.userId;
