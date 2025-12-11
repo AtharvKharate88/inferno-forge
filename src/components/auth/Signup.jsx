@@ -43,7 +43,8 @@ export default function Signup() {
       window.location.href = "/app";
     } catch (err) {
       console.error("Full error:", err);
-      const errorMsg = err.response?.data?.message || err.message || "Signup Failed";
+      const errorMsg =
+        err.response?.data?.message || err.message || "Signup Failed";
       alert(errorMsg);
       setLoading(false);
     }
